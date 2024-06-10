@@ -1,0 +1,2 @@
+class Van < ApplicationRecord
+end
