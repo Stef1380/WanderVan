@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+    @van = Van.find(params[:van_id])
   end
 
   def show
@@ -8,16 +9,23 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @van = Van.find(params[:van_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @van = Van.price
-    total_days = (Booking.end_date - Booking.start_date).to_i + 1
-    self.total_price = total_days * van.price_per_day
-    Booking.total_price(total_days * @van)
-    @booking.save
+    @van = Van.find(params[:van_id])
+    @booking.van = @van
+    @booking.user = current_user
+    @van.price
+    total_days = (@booking.end_date - @booking.start_date).to_i + 1
+    @booking.total_price = total_days * @van.price
+    if @booking.save!
+      redirect_to van_booking_path(@van, @booking), notice: "Van was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

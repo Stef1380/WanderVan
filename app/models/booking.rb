@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :van
+  # validates :statut, presence: true
+  # validates :statut, inclusion: { in: ["pending", "confirmed", "refused"] }
   validates :total_price, presence: true
   validate :start_date_before_end_date
   validate :dates_not_in_past

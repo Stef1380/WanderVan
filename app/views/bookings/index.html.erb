@@ -1,0 +1,6 @@
+<% @bookings.each do |book| %>
+<div>
+  <%= link_to book.total_price, van_booking_path(@van, book) %>
+</div>
+<% end %>
+<%= link_to "return to vans", vans_path%>
