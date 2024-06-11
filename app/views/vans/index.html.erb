@@ -3,6 +3,9 @@
 <% @vans.each do |van| %>
   <div>
     <%= van.brand %>
+    <% @van.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
     <%= link_to "Destroy", van_path(van), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     <%= link_to "Edit", edit_van_path(van)%>
   </div>
