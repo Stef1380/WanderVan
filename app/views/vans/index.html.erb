@@ -8,5 +8,6 @@
 <% end %>
     <%= link_to "Destroy", van_path(van), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     <%= link_to "Edit", edit_van_path(van)%>
+    <%= link_to "book",new_van_booking_path(van)%>
   </div>
 <% end %>
