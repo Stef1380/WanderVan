@@ -4,7 +4,7 @@ class VansController < ApplicationController
   end
 
   def show
-    @Van = Van.find(params[:id])
+    @van = Van.find(params[:id])
   end
 
   def new
@@ -13,8 +13,8 @@ class VansController < ApplicationController
 
   def create
     @van = Van.new(van_params)
-    @van.user
-    if @van.save
+    @van.user_id = current_user.id
+    if @van.save!
       redirect_to @van, notice: "Van was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -45,6 +45,6 @@ class VansController < ApplicationController
   private
 
   def van_params
-    params.require(:van).permit(:brand, :km, :description, :number_of_sead, :categorie, :location)
+    params.require(:van).permit(:brand, :km, :description, :number_of_seat, :categorie, :location, :price)
   end
 end
