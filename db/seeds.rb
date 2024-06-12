@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "seeding"
+Booking.destroy_all
 Van.destroy_all
 User.destroy_all
 User.create(first_name: "Test", last_name: "TestTest", location: "Marseille", email: "test@wander.com", password: "azerty")
