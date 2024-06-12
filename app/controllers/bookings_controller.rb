@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     total_days = (@booking.end_date - @booking.start_date).to_i + 1
     @booking.total_price = total_days * @van.price
     if @booking.save!
-      redirect_to van_booking_path(@van, @booking), notice: "Van was successfully created."
+      redirect_to user_path(current_user), notice: "Van was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

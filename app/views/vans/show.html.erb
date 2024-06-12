@@ -1,17 +1,28 @@
 
-  <% @vans.each do |van| %>
-    <%= van.brand %>
-    <%= van.description %>
-    <%= van.km %>
-    <%= van.number_of_seat %>
-    <%= van.price %>
-    <%= van.location %>
-    <%= van.categorie %>
-    <%= link_to "delete", van_path(van)  %>
-      <% van.photos.each do |photo| %>
+    <%= @van.brand %>
+    <%= @van.description %>
+    <%= @van.km %>
+    <%= @van.number_of_seat %>
+    <%= @van.price %>
+    <%= @van.location %>
+    <%= @van.categorie %>
+    <% @van.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-  <% end %>
+    <% end %>
+
+  <%# @vans.each do |van| %>
+    <%# van.brand %>
+    <%# van.description %>
+    <%# van.km %>
+    <%#van.number_of_seat %>
+    <%# van.price %>
+    <%# van.location %>
+    <%# van.categorie %>
+    <%# link_to "delete", van_path(van)  %>
+      <%# van.photos.each do |photo| %>
+        <%# cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# end %>
+  <%# end %>
 
   <%= simple_form_for [@van, @booking] do |f| %>
  <%= f.input :start_date, as: :string,
