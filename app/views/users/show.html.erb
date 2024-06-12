@@ -7,10 +7,12 @@
 <% end %>
 <h2>Vous avez louer ce van</h2>
 
-<h4>
+
 <% @bookings.each do |booking| %>
   <%= booking.van.brand %>
   <%= booking.start_date %>
   <%= booking.end_date %>
   <%= booking.total_price %>
 <% end %>
+<%= link_to "Create Van", new_van_path  %>
+<%= link_to "Accueil", root_path %>

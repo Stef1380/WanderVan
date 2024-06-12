@@ -1,5 +1,7 @@
 class VansController < ApplicationController
   def show
+    @vans = Van.where(user_id: current_user.id)
+    @booking = Booking.new
     @van = Van.find(params[:id])
   end
 
@@ -10,11 +12,10 @@ class VansController < ApplicationController
   end
 
   def create
-    @van = Van.find(params[:id])
     @van = Van.new(van_params)
     @van.user = current_user
     if @van.save!
-      redirect_to @van, notice: "Van was successfully created."
+      redirect_to van_path(@van), notice: "Van was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class VansController < ApplicationController
   def update
     @van = Van.find(params[:id])
     if @van.update(van_params)
-      redirect_to @van, notice: "Van was successfully updated."
+      redirect_to van_path(@van), notice: "Van was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

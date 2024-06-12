@@ -1,50 +1,19 @@
 
-  <p>
-    <strong>brand:</strong>
-    <%= @van.brand %>
-  </p>
+  <% @vans.each do |van| %>
+    <%= van.brand %>
+    <%= van.description %>
+    <%= van.km %>
+    <%= van.number_of_seat %>
+    <%= van.price %>
+    <%= van.location %>
+    <%= van.categorie %>
+    <%= link_to "delete", van_path(van)  %>
+      <% van.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+  <% end %>
 
-  <p>
-    <strong>description:</strong>
-    <%= @van.description %>
-  </p>
-
-  <p>
-    <strong>km :</strong>
-    <%= @van.km %>
-  </p>
-
-    <p>
-    <strong>Seat :</strong>
-    <%= @van.number_of_seat %>
-  </p>
-
-   <p>
-    <strong>photos :</strong>
-   <% @van.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-  </p>
-
-    <p>
-    <strong>Price:</strong>
-    <%= @van.price %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= @van.location %>
-  </p>
-
-    <p>
-    <strong>Category:</strong>
-    <%= @van.categorie %>
-  </p>
-
-<p>dans la show tu as le forms du booking donc la new et create de booking.
-  </p>
-
-  <%= simple_form_for [@user, @van, @booking] do |f| %>
+  <%= simple_form_for [@van, @booking] do |f| %>
  <%= f.input :start_date, as: :string,
     required: false,
     input_html: { data: { controller: "datepicker" } } %>
@@ -55,3 +24,4 @@
 
       <%= f.button :submit, "valider", class: "btn btn-primary" %>
 <% end %>
+<%= link_to "Accueil", root_path  %>
