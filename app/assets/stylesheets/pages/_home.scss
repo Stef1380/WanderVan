@@ -1,1 +1,19 @@
-// Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 170px;
+}
+
+.category-item {
+text-decoration: none;
+margin: 50px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.category-bar {
+  background-color: #F2E1CE;
+  padding: 20px;
+}

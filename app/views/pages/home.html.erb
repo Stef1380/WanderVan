@@ -1,5 +1,27 @@
 
-<p>il faut mettre l'index des vans, quand tu cliques sur ta carte des vans, tu arrives sur la show de van</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), url(<%= image_path "banner_image.png" %>);">
+</div>
+
+<div class="category-bar">
+        <a href="#categorie1" class="category-item">
+            <%= image_tag "parents.png"%>
+        </a>
+        <a href="#categorie2" class="category-item">
+            <%= image_tag "pet.png"%>
+        </a>
+         <a href="#categorie3" class="category-item">
+            <%= image_tag "standing.png"%>
+        </a>
+        <a href="#categorie4" class="category-item">
+            <%= image_tag "hug.png"%>
+        </a>
+         <a href="#categorie5" class="category-item">
+            <%= image_tag "heart.png"%>
+        </a>
+        <a href="#categorie6" class="category-item">
+            <%= image_tag "ghost.png"%>
+        </a>
+</div>
 <% @vans.each do |van| %>
   <div>
     <%= van.brand %>
