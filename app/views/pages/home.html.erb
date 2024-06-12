@@ -3,5 +3,9 @@
 <% @vans.each do |van| %>
   <div>
     <%= van.brand %>
+    <%= link_to "Show Van", van_path(van)  %>
+    <%= link_to "Edit Van", edit_van_path(van)  %>
   </div>
 <% end %>
+<%= link_to "Dashboard", user_path(current_user)  %>
+<%= link_to "Create Van", new_van_path  %>
