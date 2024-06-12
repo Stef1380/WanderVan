@@ -7,18 +7,21 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
             <li class="nav-item dropdown">
               <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", aria_haspopup: "true", aria_expanded: "false", data: {bs_toggle: "dropdown"} %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Dashboard", user_path(current_user) %>
-                <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+               <% if user_signed_in? %>
+                  <%= link_to "Dashboard", user_path(current_user) %>
+                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to "Dashboard", user_session%>
+                  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                <% end %>
               </div>
             </li>
         </ul>
       </div>
-    <% end %>
   </div>
 </div>
