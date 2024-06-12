@@ -1,10 +1,11 @@
 <h1>Profil de <%= @user.first_name %></h1>
 <% @vans.each do |van| %>
   <div>
-    <%= van.brand %>
-
+    <%= link_to van.brand, edit_van_path(van) %>
   </div>
 <% end %>
+<%= link_to "Add a Van", new_van_path  %>
+
 <h2>Vous avez louer ce van</h2>
 
 
@@ -14,5 +15,5 @@
   <%= booking.end_date %>
   <%= booking.total_price %>
 <% end %>
-<%= link_to "Create Van", new_van_path  %>
+
 <%= link_to "Accueil", root_path %>
