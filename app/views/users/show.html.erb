@@ -1,1 +1,24 @@
-show for user
+<p> dans la show du user on a l'index de ses vans. tu as aussi la show de ton booking
+il faudra mettre un bouton</p>
+
+<% @vans.each do |van| %>
+  <div>
+    <%= van.brand %>
+    <%= link_to "Destroy", van_path(van), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%= link_to "Edit", edit_van_path(van)%>
+    <%= link_to "book",new_van_booking_path(van)%>
+  </div>
+<% end %>
+<h2>Vous avez louer ce van</h2>
+
+<h4>
+<%= @booking.total_price %>
+</h4>
+<h4>
+
+<%= @booking.start_date %> au <%= @booking.end_date %>
+</h4>
+<%= link_to "my every books",van_bookings_path%>
+
+    <%= link_to "Destroy", van_path(van), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <%= link_to "Edit", edit_van_path(van)%>

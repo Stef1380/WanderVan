@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<p>il faut mettre l'index des vans, quand tu cliques sur ta carte des vans, tu arrives sur la show de van</p>
+<% @vans.each do |van| %>
+  <div>
+    <%= van.brand %>
+  </div>
+<% end %>

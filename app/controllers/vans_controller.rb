@@ -9,15 +9,23 @@ class VansController < ApplicationController
 
   def new
     @van = Van.new
+    @van = Van.find(params[:van_id])
+    @booking = Booking.new
   end
 
   def create
+    @van = Van.find(params[:id])
     @van = Van.new(van_params)
     @van.user = current_user
     if @van.save!
       redirect_to @van, notice: "Van was successfully created."
     else
       render :new, status: :unprocessable_entity
+    end
+    if @van.update(van_params)
+      redirect_to @van, notice: "Van was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
