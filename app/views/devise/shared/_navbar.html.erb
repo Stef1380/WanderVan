@@ -12,7 +12,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", aria_haspopup: "true", aria_expanded: "false", data: {bs_toggle: "dropdown"} %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Dashboard</a>
+              <%= link_to "Dashboard", user_path(current_user) %>
               <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
             </div>
           </li>
