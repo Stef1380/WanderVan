@@ -1,19 +1,26 @@
-<%= simple_form_for(@van) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="form-container">
+  <div class="form-card flexbox">
+    <%= simple_form_for(@van) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :brand %>
-    <%= f.input :description %>
-    <%= f.input :number_of_seat, collection: (1..5).to_a %>
-    <%= f.input :km %>
-    <%= f.input :price %>
-    <%= f.input :location %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :categorie, collection: %w[Petit-prix, Sun, Expert, Debutant] %>
-  </div>
+      <div class="form-inputs-short">
+        <%= f.input :brand %>
+        <%= f.input :number_of_seat, collection: (1..5).to_a %>
+        <%= f.input :km %>
+        <%= f.input :price %>
+        <%= f.input :location %>
+        <%= f.input :categorie, collection: %w[Petit-prix, Sun, Expert, Debutant] %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.submit @van.id ? "Update" : "Create" %>
+      <div class="form-inputs">
+        <%= f.input :description %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit @van.id ? "Update" : "Create", class: "btn-orange" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
