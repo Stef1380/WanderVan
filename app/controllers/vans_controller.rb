@@ -3,6 +3,10 @@ class VansController < ApplicationController
     @vans = Van.where(user_id: current_user.id)
     @booking = Booking.new
     @van = Van.find(params[:id])
+    @booking = Booking.new
+    @bookings = Booking.where(van_id: params[:id]).pluck(:start_date, :end_date).map do |start_date, end_date|
+      { from: start_date, to: end_date }
+    end.to_json
   end
 
   def new
@@ -15,20 +19,21 @@ class VansController < ApplicationController
     @van = Van.new(van_params)
     @van.user = current_user
     if @van.save!
-      redirect_to van_path(@van), notice: "Van was successfully created."
+      redirect_to user_path(current_user), notice: "Van was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    # @van = Van.where(user_id: current_user.id, params)
     @van = Van.find(params[:id])
   end
 
   def update
     @van = Van.find(params[:id])
     if @van.update(van_params)
-      redirect_to van_path(@van), notice: "Van was successfully updated."
+      redirect_to user_path(current_user), notice: "Van was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end

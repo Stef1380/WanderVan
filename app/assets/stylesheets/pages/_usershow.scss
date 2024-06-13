@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+// .dashboard {
+// display: flex;
+// justify-content: space-between;
+// margin: 0 20px;
+// }
+
+// .bookings, .vans {
+// width: 45%;
+// margin-top: 50px;
+// margin-bottom: 50px;
+// }
+
+.booking, .van {
+border: 1px solid #ccc;
+border-radius: 16px;
+box-shadow: 10px 5px 5px rgb(184, 181, 181);
+padding: 10px;
+margin: 10px 0;
+margin-right: 200px;
+}
+
+.links {
+text-align: center;
+margin-top: 20px;
+margin-right: 200px;
+}
+
+#button_create {
+background-color: #FF863A;
+padding: 15px 32px;
+border-radius: 5px;
+text-decoration: none;
+}
+
+#button_create a {
+margin: 0 10px;
+text-decoration: none;
+color: white;
+}
+
+#redirect_home a {
+color: black;
+}
+
+#redirect_home {
+margin-top: 30px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit {
+  margin-left: 500px;
+  margin-right: 10px;
+}
+
+.edit a {
+  color: #FF863A;
+}
+
+.edit a:hover {
+  color: #B95617;
+}
+
+.delete a {
+  color: #FF863A;
+}
+
+.delete a:hover {
+  color: #B95617;
+}
+
+.vans .van {
+  background-color: white;
+}
+
+.vans .van p {
+  color: black;
+  text-decoration: none;
+}
+
+.bookings {
+  margin-left: 140px;
+}

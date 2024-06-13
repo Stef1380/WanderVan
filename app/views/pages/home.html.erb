@@ -1,33 +1,44 @@
+<%= render partial: "form", locals: { pages: @pages } %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), url(<%= image_path "banner_image.png" %>);">
-</div>
-
-<div class="category-bar">
-        <a href="#categorie1" class="category-item">
-            <%= image_tag "parents.png"%>
-        </a>
-        <a href="#categorie2" class="category-item">
-            <%= image_tag "pet.png"%>
-        </a>
-         <a href="#categorie3" class="category-item">
-            <%= image_tag "standing.png"%>
-        </a>
-        <a href="#categorie4" class="category-item">
-            <%= image_tag "hug.png"%>
-        </a>
-         <a href="#categorie5" class="category-item">
-            <%= image_tag "heart.png"%>
-        </a>
-        <a href="#categorie6" class="category-item">
-            <%= image_tag "ghost.png"%>
-        </a>
-</div>
-<% @vans.each do |van| %>
-  <div>
-    <%= van.brand %>
-    <%= link_to "Show Van", van_path(van)  %>
-    <%= link_to "Edit Van", edit_van_path(van)  %>
+<div data-controller="cards">
+  <div class="category-bar d-flex">
+    <div class="category-item">
+      <%= image_tag "parents.png", data: { action: "click->cards#filter" }, id: "Famille"  %>
+    </div>
+    <div class="category-item">
+      <%= image_tag "pet.png", data: { action: "click->cards#filter" }, id: "Pets" %>
+    </div>
+    <div class="category-item">
+      <%= image_tag "standing.png", data: { action: "click->cards#filter" }, id: "Adventure" %>
+    </div>
+    <div class="category-item">
+      <%= image_tag "hug.png", data: { action: "click->cards#filter" }, id: "Romantique"%>
+    </div>
+    <div class="category-item">
+      <%= image_tag "heart.png", data: { action: "click->cards#filter" }, id: "LoveRoom" %>
+    </div>
+    <div class="category-item">
+      <%= image_tag "ghost.png", data: { action: "click->cards#filter" }, id: "Horreur" %>
+    </div>
   </div>
-<% end %>
-<%= link_to "Dashboard", user_path(current_user)  %>
-<%= link_to "Create Van", new_van_path  %>
+
+  <div class="cards-wrapper">
+    <% @vans.each do |van| %>
+      <div class="card <%= van.categorie %>" id="<%= van.categorie %>" data-cards-target="van">
+        <div class="card__image-container">
+          <% if van.photos.attached? %>
+            <%= cl_image_tag van.photos.first.key, class: 'card__image', alt: van.brand %>
+          <% end %>
+        </div>
+        <div class="card__content">
+          <h3 class="card__title"><%= van.brand %></h3>
+          <p class="card__description"><%= van.description %></p>
+          <p class="card__km"><%= van.km %> km</p>
+          <div class="card__button">
+            <%= link_to "Learn More", van_path(van) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
