@@ -19,7 +19,7 @@ Van.create(user: User.first, brand: "VW California", km: "2567", description: " 
 Van.create(user: User.first, brand: "VW transport", km: "78999", description: "espace et confort", number_of_seat: "5", price: "69", categorie: "Pets", location: "Montpellier")
 Van.create(user: User.first, brand: "VW California", km: "39800", description: "van authentique pour les baroudeurs", number_of_seat: "4", price: "Adventure", categorie: "fun", location: "bordeaux")
 Van.create(user: User.first, brand: "Peugeot Partner", km: "43566", description: "tout confort", number_of_seat: "5", price: "79", categorie: "Famille", location: "Lyon")
-Van.create(user: User.first, brand: "VW California", km: "2567", description: " version moderne", number_of_seat: "4", price: "109", categorie: "Famille", location: "Paris")
+Van.create(user: User.first, brand: "VW California", km: "2567", description: " version moderne", number_of_seat: "5", price: "109", categorie: "Famille", location: "Paris")
 Van.create(user: User.first, brand: "VW transport", km: "78999", description: "espace et confort", number_of_seat: "5", price: "69", categorie: "LoveRoom", location: "Montpellier")
 Van.create(user: User.first, brand: "VW California", km: "39800", description: "van authentique pour les baroudeurs", number_of_seat: "4", price: "145", categorie: "Love Room", location: "bordeaux")
 Van.create(user: User.first, brand: "Peugeot Partner", km: "43566", description: "tout confort", number_of_seat: "5", price: "79", categorie: "Famille", location: "Lyon")
