@@ -1,10 +1,12 @@
-<div class="form-container">
-  <div class="form-card flexbox">
+<div class="container">
+<h2>Create new van</h2>
+<div class="grid">
+  <div class="row form-cards">
     <%= simple_form_for(@van) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <div class="form-inputs-short">
+      <div class="col-6 form-card">
         <%= f.input :brand %>
         <%= f.input :number_of_seat, collection: (1..5).to_a %>
         <%= f.input :km %>
@@ -13,14 +15,15 @@
         <%= f.input :categorie, collection: %w[Petit-prix, Sun, Expert, Debutant] %>
       </div>
 
-      <div class="form-inputs">
+      <div class="col-6 form-card">
         <%= f.input :description %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      </div>
 
-      <div class="form-actions">
-        <%= f.submit @van.id ? "Update" : "Create", class: "btn-orange" %>
+        <div class="form-actions">
+          <%= f.submit @van.id ? "Update" : "Create", class: "btn-orange" %>
+        </div>
       </div>
     <% end %>
   </div>
+</div>
 </div>
