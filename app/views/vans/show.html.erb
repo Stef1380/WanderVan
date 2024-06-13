@@ -24,6 +24,8 @@
         <%# cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <%# end %>
   <%# end %>
+
+  <%# Ne paas supprimer ces 2 div ------------------- %>
 <div class="card d-inline-flex p-2" data-controller="total-price">
   <%= simple_form_for [@van, @booking] do |f| %>
     <%= f.input :start_date, as: :string,
@@ -37,6 +39,7 @@
     <%= f.button :submit, "Valider", class: "btn btn-primary" %>
   <% end %>
   <div id="total_price" data-total-price-target="total_price" price="<%= @van.price%>">
-    
+
   </div>
 </div>
+ <%# Ne paas supprimer ces 2 div ------------------- %>
