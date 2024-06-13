@@ -1,0 +1,72 @@
+.bar {
+  width: 650px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bar div {
+  position: relative;
+  flex: 1;
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+.bar div:hover {
+  background: #f8f8f8;
+}
+
+.bar div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background: #e0e0e0;
+}
+
+.bar div:first-of-type::before {
+  display: none;
+}
+
+.bar input[type="text"],
+.bar select {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #333333;
+  outline: none;
+}
+
+.bar input[type="text"]::placeholder,
+.bar select::placeholder {
+  color: #999999;
+}
+
+.bar .guests {
+  position: relative;
+}
+
+.bar .guests span {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: #ff385c;
+  color: white;
+  font-size: 0.9rem;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.bar .guests span:hover {
+  background: #ff1f47;
+}
