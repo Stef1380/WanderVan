@@ -1,41 +1,68 @@
-<div class= "body">
-    <div class="container">
-        <h1>Welcome to your dashboard, <%= @user.first_name %></h1>
-    </div>
-
+<div class="container">
+        <h2>Welcome to your dashboard, Test</h2>
+</div>
+<div class="row">
     <div class="dashboard">
-        <div class="bookings">
-            <h2>Your next booking</h2>
-            <% @bookings.each do |booking| %>
-              <div class="booking">
-                <p>Van: <%= booking.van.brand %></p>
-                <p>Date de début: <%= booking.start_date %></p>
-                <p>Date de fin: <%= booking.end_date %></p>
-                <p>Prix total: <%= booking.total_price %></p>
+      <div class="d-flex">
+        <div class="bookings" style="width: 50%;">
+          <div class="col-md-8">
+            <h3>Your next booking</h3>
+            <%@bookings.each do |booking| %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">Van Photo</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">calendar</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Van: <%=booking.van.brand%></h5>
+                  <p>Categorie: <%=booking.van.categorie%></p>
+                  <p>Starting Date: <%= booking.start_date%></p>
+                  <p>Eding Date: <%= booking.end_date%></p>
+                  <p>Total Price: <%= booking.total_price %>€</p>
+                </div>
               </div>
-            <% end %>
+            <%end%>
+          </div>
         </div>
-
-        <div class="vans">
-            <h2>Your vans</h2>
+        <div class="vans" style="width: 50%;">
+          <h2>Your vans</h2>
+          <div>
             <% @vans.each do |van| %>
               <div class="van">
-                <p><%= link_to van.brand, edit_van_path(van) %></p>
-                 <div class= "delete">
-            <span class="material-symbols-outlined">delete</span>
-            </div>
+                <p><%=van.brand%></p>
+                <div class= "icons">
+                  <div class= "edit">
+                  <%= link_to edit_van_path(van) do %>
+                    <span class="material-symbols-outlined">edit</span>
+                    <% end %>
+                  </div>
+                    <div class= "delete">
+                      <%= link_to van_path(van), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                        <span class="material-symbols-outlined">delete</span>
+                      <% end %>
+                    </div>
+                </div>
               </div>
             <% end %>
+          </div>
+          <div class="links">
+            <div id= "button_create"><%= link_to "Create Van", new_van_path %></div>
+            <div id="redirect_home"><%= link_to "Home", root_path %></div>
+          </div>
         </div>
+      </div>
 
-
-    </div>
-
-    <div class="links">
-        <div id= "button_create"><%= link_to "Create Van", new_van_path %>
-        </div>
-        <div id="redirect_home"><%= link_to "Accueil", root_path %>
-       </div>
-    </div>
-    </div>
+  </div>
 </div>
