@@ -1,19 +1,41 @@
-<h1>Profil de <%= @user.first_name %></h1>
-<% @vans.each do |van| %>
-  <div>
-    <%= link_to van.brand, edit_van_path(van) %>
-  </div>
-<% end %>
-<%= link_to "Add a Van", new_van_path  %>
+<div class= "body">
+    <div class="container">
+        <h1>Welcome to your dashboard, <%= @user.first_name %></h1>
+    </div>
 
-<h2>Vous avez louer ce van</h2>
+    <div class="dashboard">
+        <div class="bookings">
+            <h2>Your next booking</h2>
+            <% @bookings.each do |booking| %>
+              <div class="booking">
+                <p>Van: <%= booking.van.brand %></p>
+                <p>Date de début: <%= booking.start_date %></p>
+                <p>Date de fin: <%= booking.end_date %></p>
+                <p>Prix total: <%= booking.total_price %></p>
+              </div>
+            <% end %>
+        </div>
+
+        <div class="vans">
+            <h2>Your vans</h2>
+            <% @vans.each do |van| %>
+              <div class="van">
+                <p><%= link_to van.brand, edit_van_path(van) %></p>
+                 <div class= "delete">
+            <span class="material-symbols-outlined">delete</span>
+            </div>
+              </div>
+            <% end %>
+        </div>
 
 
-<% @bookings.each do |booking| %>
-  <%= booking.van.brand %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-  <%= booking.total_price %>
-<% end %>
+    </div>
 
-<%= link_to "Accueil", root_path %>
+    <div class="links">
+        <div id= "button_create"><%= link_to "Create Van", new_van_path %>
+        </div>
+        <div id="redirect_home"><%= link_to "Accueil", root_path %>
+       </div>
+    </div>
+    </div>
+</div>
