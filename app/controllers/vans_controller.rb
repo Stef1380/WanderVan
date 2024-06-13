@@ -3,6 +3,10 @@ class VansController < ApplicationController
     @vans = Van.where(user_id: current_user.id)
     @booking = Booking.new
     @van = Van.find(params[:id])
+    @booking = Booking.new
+    @bookings = Booking.where(van_id: params[:id]).pluck(:start_date, :end_date).map do |start_date, end_date|
+      { from: start_date, to: end_date }
+    end.to_json
   end
 
   def new
