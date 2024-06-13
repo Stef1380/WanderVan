@@ -1,4 +1,5 @@
 <h1>Profil de <%= @user.first_name %></h1>
+
 <% @vans.each do |van| %>
   <div>
     <%= link_to van.brand, edit_van_path(van) %>

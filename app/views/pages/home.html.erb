@@ -24,8 +24,6 @@
 </div>
 <% @vans.each do |van| %>
   <div>
-    <%# van.brand %>
     <%= link_to van.brand, van_path(van)  %>
   </div>
 <% end %>
-
