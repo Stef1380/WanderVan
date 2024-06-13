@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600&display=swap');
+
+$firaSans: 'Fira Sans', sans-serif;
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card__image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  position: relative;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.1);
+}
+
+.card__content {
+  padding: 20px;
+  text-align: center;
+  font-family: $firaSans;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  transition: background 0.5s ease;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card__description {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.card__km {
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2d7f0b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card__button:hover {
+  background-color: #256405;
+  transform: scale(1.1);
+}
