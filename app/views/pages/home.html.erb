@@ -1,4 +1,8 @@
-<%= render partial: "form", locals: { pages: @pages } %>
+<div class="banner" style="background-image: url(<%= image_path 'banner_image.png' %>);"></div>
+
+<div class= "search_bar"
+><%= render partial: "form", locals: { pages: @pages } %>
+</div>
 
 <div data-controller="cards">
   <div class="category-bar d-flex">

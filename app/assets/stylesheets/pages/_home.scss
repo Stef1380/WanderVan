@@ -5,8 +5,11 @@
 }
 
 .category-item {
-text-decoration: none;
-margin: 50px;
+  display: flex;
+  padding: 27px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   img {
     width: 30px;
     height: 30px;
@@ -14,6 +17,20 @@ margin: 50px;
 }
 
 .category-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F2E1CE;
-  padding: 20px;
+  padding: 5px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search_bar {
+  margin-top:30px;
+  margin-bottom: 30px;
+  background-color: #FDF5EC ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

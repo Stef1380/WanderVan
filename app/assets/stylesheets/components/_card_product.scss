@@ -8,6 +8,7 @@ $firaSans: 'Fira Sans', sans-serif;
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
+  background-color: #FDF5EC;
 }
 
 .card {
@@ -46,11 +47,15 @@ $firaSans: 'Fira Sans', sans-serif;
 }
 
 .card__content {
-  padding: 20px;
+  min-height: 54%;
+  display: flex;
+  padding: 12px;
   text-align: center;
-  font-family: $firaSans;
+  font-family: "Fira Sans", sans-serif;
   background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   transition: background 0.5s ease;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__title {
@@ -61,8 +66,8 @@ $firaSans: 'Fira Sans', sans-serif;
 
 .card__description {
   font-size: 1rem;
-  margin-bottom: 10px;
   color: #666;
+  height: fit-content;
 }
 
 .card__km {
@@ -74,14 +79,19 @@ $firaSans: 'Fira Sans', sans-serif;
 .card__button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #2d7f0b;
+  background-color: #FF863A;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.card__button a {
+  color: white;
+  text-decoration: none;
+}
+
 .card__button:hover {
-  background-color: #256405;
+  background-color: #B95617;
   transform: scale(1.1);
 }
