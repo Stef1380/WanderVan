@@ -1,0 +1,35 @@
+// .footer-content {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 80%;
+//   margin: 0 auto;
+//   background-color: #B95617;
+//   color: #fff;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+// }
+
+// .info p {
+//   margin: 0;
+//   line-height: 1.5;
+// }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color:#B95617 ;
+  color: #fff;
+}
+
+.footer-text {
+  color:white;
+  /* Styles pour le texte du footer */
+}
+
+.footer-logo {
+  width: 200px; /* Ajustez selon vos besoins */
+}
