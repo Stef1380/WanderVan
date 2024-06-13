@@ -5,6 +5,7 @@
 // input and has no visual effect. Here we try to fix matters by
 // applying the clear to the div wrapping the first following radio button
 // or checkbox.
+
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
