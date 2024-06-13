@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+
   belongs_to :user
   belongs_to :van
   # validates :statut, presence: true

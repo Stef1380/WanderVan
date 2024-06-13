@@ -14,6 +14,7 @@ User.destroy_all
 User.create(first_name: "Test", last_name: "TestTest", location: "Marseille", email: "test@wander.com", password: "azerty")
 puts "user ok"
 
+
 Van.create(user: User.first, brand: "Sunrise Suite", km: "3980000", description: "Parfait pour des vacances en famille", number_of_seat: "5", price: "10", categorie: "Adventure", location: "marseille")
 
 Van.create(user: User.first, brand: "Cyril Summer", km: "43566", description: "Van assez rouiller mais il a un moteur des roues", number_of_seat: "5", price: "79", categorie: "Famille", location: "Lyon")
@@ -44,5 +45,5 @@ Van.create(user: User.first, brand: "Camper Cabin", km: "2567", description: "Pa
 
 Van.create(user: User.first, brand: "VW transport", km: "78999", description: "Prenez votre lezard avec vous pour vivre vos meilleur vacances mais attention a ne pas le perdre", number_of_seat: "5", price: "69", categorie: "Pets", location: "Montpellier")
 
-Van.create(user: User.first, brand: "Travel Home", km: "39800", description: "Un van fait pour les amateur de sentation forte", number_of_seat: "4", price: "Adventure", categorie: "fun", location: "bordeaux")
+
 puts "all good"
