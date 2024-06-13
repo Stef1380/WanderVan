@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+margin: 0;
+height: 100%;
+background-color: #FDF5EC;
+font-family: "Poppins", sans-serif;
+}
+
+.dashboard {
+display: flex;
+justify-content: space-between;
+margin: 0 20px;
+}
+
+.bookings, .vans {
+width: 45%;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+.booking, .van {
+border: 1px solid #ccc;
+padding: 10px;
+margin: 10px 0;
+margin-right: 200px;
+}
+
+.links {
+text-align: center;
+margin-top: 20px;
+}
+
+#button_create {
+background-color: #FF863A;
+padding: 15px 32px;
+margin: 4px 750px;
+border-radius: 5px;
+text-decoration: none;
+}
+
+#button_create a {
+margin: 0 10px;
+text-decoration: none;
+color: white;
+}
+
+#redirect_home a {
+color: black;
+}
+
+#redirect_home {
+margin-top: 30px;
+}
+
+.delete {
+margin-left: 500px;
+}
