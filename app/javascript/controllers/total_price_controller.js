@@ -14,7 +14,7 @@ export default class extends Controller {
       if (price_final > 0) {
         div_price.innerHTML = "votre reservation s'élève a  " + price_final + "€"
       } else {
-        div_price.innerHTML = "veuillez sélectionner vos dates"
+        div_price.innerHTML = "La selection de date et vide ou deja prise"
       }
   }
 }
