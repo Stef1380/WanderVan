@@ -28,21 +28,23 @@
 
   <div class="cards-wrapper">
     <% @vans.each do |van| %>
-      <div class="card <%= van.categorie %>" id="<%= van.categorie %>" data-cards-target="van">
-        <div class="card__image-container">
-          <% if van.photos.attached? %>
-            <%= cl_image_tag van.photos.first.key, class: 'card__image', alt: van.brand %>
-          <% end %>
-        </div>
-        <div class="card__content">
-          <h3 class="card__title"><%= van.brand %></h3>
-          <p class="card__description"><%= van.description %></p>
-          <p class="card__km"><%= van.km %> km</p>
-          <div class="card__button">
-            <%= link_to "Learn More", van_path(van) %>
+
+        <div class="card <%= van.categorie %>" id="<%= van.categorie %>" data-cards-target="van">
+          <div class="card__image-container">
+            <% if van.photos.attached? %>
+              <%= cl_image_tag van.photos.first.key, class: 'card__image', alt: van.brand %>
+            <% end %>
+          </div>
+          <div class="card__content">
+            <h3 class="card__title"><%= van.brand %></h3>
+            <p class="card__description"><%= van.description %></p>
+            <p class="card__km"><%= van.km %> km</p>
+            <div class="card__button">
+              <%= link_to "Learn More", van_path(van) %>
+            </div>
           </div>
         </div>
-      </div>
+
     <% end %>
   </div>
 </div>

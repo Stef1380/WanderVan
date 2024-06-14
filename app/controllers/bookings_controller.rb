@@ -5,7 +5,11 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @booking = current_user.bookings.find_by(id: params[:id])
+    if @booking.nil?
+      flash[:alert] = "Booking not found or you don't have permission to access it."
+      redirect_to root_path
+    end
   end
 
   def new
@@ -28,7 +32,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accepter
+    @booking.accepter!
+    redirect_to [@booking.van, @booking], notice: 'La réservation a été acceptée.'
+  end
+
+  def refuser
+    @booking.refuser!
+    redirect_to [@booking.van, @booking], notice: 'La réservation a été refusée.'
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date,:start_date,:start_date,:end_date,:end_date,:end_date)

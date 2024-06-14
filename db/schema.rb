@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_13_102445) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_14_091836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,13 +46,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_13_102445) do
     t.date "start_date"
     t.date "end_date"
     t.integer "total_price"
-    t.string "statut"
+    t.string "statut", default: "en attente"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "van_id", null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["van_id"], name: "index_bookings_on_van_id"
+    t.check_constraint "statut::text = ANY (ARRAY['en attente'::character varying, 'accepter'::character varying, 'refuser'::character varying]::text[])", name: "statut_check"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

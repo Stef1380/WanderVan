@@ -7,9 +7,17 @@ class Booking < ApplicationRecord
   validates :total_price, presence: true
   validate :start_date_before_end_date
   validate :no_overlap
+  validates :statut, inclusion: { in: ['en attente', 'accepter', 'refuser'] }
 
   private
 
+  def accepter!
+    update(statut: 'accepter')
+  end
+
+  def refuser!
+    update(statut: 'refuser')
+  end
 
   # def dates_must_be_available
   #   overlapping_bookings = Booking.where(van_id: van_id)
