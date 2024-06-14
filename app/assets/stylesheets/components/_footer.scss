@@ -20,9 +20,12 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   background-color:#B95617 ;
   color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-text {
@@ -31,5 +34,5 @@ footer {
 }
 
 .footer-logo {
-  width: 200px; /* Ajustez selon vos besoins */
+  width: 100px; /* Ajustez selon vos besoins */
 }

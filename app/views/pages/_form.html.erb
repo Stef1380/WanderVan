@@ -2,20 +2,19 @@
   <div class="bar">
     <div class="location">
       <p>Location</p>
-      <%= text_field_tag "location", params[:location], placeholder: "Where are you going?", class: "form-control" %>
+      <%= text_field_tag "location", params[:location], placeholder: "Where?", class: "form-control" %>
     </div>
     <div class="check-in">
       <p>Check in</p>
-      <%= date_field_tag "check_in", params[:check_in], as: :string, placeholder: "Add dates", class: "form-control", data: { controller: "datepicker" } %>
+      <%= date_field_tag "check_in", params[:check_in], as: :string, placeholder: "Start date", class: "form-control", data: { controller: "datepicker" } %>
     </div>
     <div class="check-out">
       <p>Check out</p>
-      <%= date_field_tag "check_out", params[:check_out], as: :string, placeholder: "Add dates", class: "form-control", data: { controller: "datepicker" } %>
+      <%= date_field_tag "check_out", params[:check_out], as: :string, placeholder: "End date", class: "form-control", data: { controller: "datepicker" } %>
     </div>
     <div class="guests">
       <p>Guests</p>
-      <%= select_tag "number_of_seat", options_for_select(1..5), prompt: "Select seats", class: "form-control" %>
-      <span><i class="lni lni-search-alt"></i></span>
+      <%= select_tag "number_of_seat", options_for_select(1..5), prompt: "How many?", class: "form-control" %>
     </div>
     <div class="search-button">
       <%= submit_tag "Search", class: "btn btn-primary" %>
